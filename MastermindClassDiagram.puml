@@ -1,0 +1,87 @@
+@startuml
+
+title Mastermind Class Diagram
+
+class Mastermind
+class Turn
+class Board
+Class Player
+class CombinationPlayer
+class GuessPlayer
+class Hole
+class Row
+class CombinationRow
+class GuessRow
+class MatchesRow
+
+class Pin
+class CombinationPin
+class MatchesPin
+
+class Color
+class Red
+class Blue
+class Green
+class Yellow
+class Pink
+class Brown
+class White
+class Black
+
+Turn -> Player
+
+Mastermind *-> Turn
+Mastermind *----> Board
+Mastermind *----> Player
+
+Player <|-- CombinationPlayer
+Player <|-- GuessPlayer
+
+CombinationPlayer *--> CombinationRow
+CombinationPlayer *--> MatchesRow
+
+CombinationPlayer ...> CombinationPin
+CombinationPlayer ...> MatchesPin
+
+GuessPlayer ...> CombinationPin
+
+GuessPlayer *--> GuessRow
+GuessPlayer ...> MatchesRow
+
+
+
+Row <|-- CombinationRow
+Row <|-- GuessRow
+Row <|-- MatchesRow
+
+Pin <|-- CombinationPin
+Pin <|-- MatchesPin
+
+CombinationPin ..> Red
+CombinationPin ..> Blue
+CombinationPin ..> Green
+CombinationPin ..> Yellow
+CombinationPin ..> Pink
+CombinationPin ..> Brown
+CombinationPin ..> White
+CombinationPin ..> Black
+
+MatchesPin ..> Black
+MatchesPin ..> White
+
+Pin *--->Color
+
+Color <|--- Red
+Color <|--- Blue
+Color <|--- Green
+Color <|--- Yellow
+Color <|--- Pink
+Color <|--- Brown
+Color <|--- White
+Color <|--- Black
+
+Row*-->Hole
+Board *--> Row
+Row o--> Pin
+
+@enduml
