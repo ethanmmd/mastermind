@@ -1,0 +1,11 @@
+@startuml
+
+package ethanmmd.mastermind
+package java.util
+package java.io
+
+[mastermind.jar] *--> ethanmmd.mastermind
+[mastermind.jar] *--> java.util
+[mastermind.jar] *--> java.io
+
+@enduml

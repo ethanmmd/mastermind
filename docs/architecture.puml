@@ -1,0 +1,9 @@
+@startuml
+
+package ethanmmd.mastermind #91DF5C { }
+package java.util{ }
+package java.io{ }
+
+ethanmmd.mastermind ...> java.util
+ethanmmd.mastermind ...> java.io
+@enduml
