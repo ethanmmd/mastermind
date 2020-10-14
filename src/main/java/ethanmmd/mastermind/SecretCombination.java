@@ -8,10 +8,10 @@ public class SecretCombination extends Combination {
 
     public SecretCombination() {
         super();
-        List<String> allowedColors = Color.getAllowedColors();
-        for (int i = 0; i < 5; i++) {
-            this.colorMix.add(allowedColors.get(i));
-            Collections.shuffle(this.colorMix);
+        List<Color> allowedColors = Color.getAllowedColors();
+        for (int i = 0; i<COMBINATION_LENGHT; i++) {
+            this.colors.add(allowedColors.get(i));
+            Collections.shuffle(this.colors);
         }
 
 
@@ -19,13 +19,13 @@ public class SecretCombination extends Combination {
 
     Result getResult(ProposedCombination proposedCombination) {
         int blacks = 0;
-        for (int i = 0; i < this.colorMix.size(); i++) {
-            if (proposedCombination.contains(this.colorMix.get(i), i)) {
+        for (int i = 0; i < this.colors.size(); i++) {
+            if (proposedCombination.contains(this.colors.get(i), i)) {
                 blacks++;
             }
         }
         int whites = 0;
-        for (String color : this.colorMix) {
+        for (Color color : this.colors) {
             if (proposedCombination.contains(color)) {
                 whites++;
             }

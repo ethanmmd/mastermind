@@ -5,9 +5,10 @@ import java.util.List;
 
 public abstract class Combination {
 
-    protected List<String> colorMix;
+    protected static final int COMBINATION_LENGHT = 4;
+    protected List<Color> colors;
 
     protected Combination(){
-        this.colorMix = new ArrayList<String>();
+        this.colors = new ArrayList<>();
     }
 }

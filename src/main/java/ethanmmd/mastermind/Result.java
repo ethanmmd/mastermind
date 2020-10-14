@@ -2,23 +2,34 @@ package ethanmmd.mastermind;
 
 public class Result {
 
-    public static final int WIDTH = 4;
-    private int blacks = 0;
-    private int whites = 0;
+    public static final int COMBINATION_LENGTH = 4;
+    private int whitePegs = 0;
+    private int blackPegs = 0;
 
-    Result(int blacks, int whites) {
-        assert blacks >= 0;
-        assert whites >= 0;
-
-        this.blacks = blacks;
-        this.whites = whites;
+    Result(int blackPegs, int whitePegs) {
+        this.blackPegs = blackPegs;
+        this.whitePegs = whitePegs;
     }
 
-    boolean isWinner() {
-        return this.blacks == Result.WIDTH;
+    boolean isDecrypted() {
+        return this.blackPegs == Result.COMBINATION_LENGTH;
     }
 
-    void writeln() {
-        GameInfo.RESULT.writeln(this.blacks, this.whites);
+
+    public int getBlackPegs() {
+        return blackPegs;
     }
+
+    public void setBlackPegs(int blackPegs) {
+        this.blackPegs = blackPegs;
+    }
+
+    public int getWhitePegs() {
+        return whitePegs;
+    }
+
+    public void setWhitePegs(int whitePegs) {
+        this.whitePegs = whitePegs;
+    }
+
 }

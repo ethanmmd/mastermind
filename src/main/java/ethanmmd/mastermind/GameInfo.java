@@ -1,32 +1,27 @@
 package ethanmmd.mastermind;
 
+import ethanmmd.utils.Console;
+
 enum GameInfo {
-    TITLE("[*][*][*][*]WELCOME TO THE MASTERMIND[*][*][*][*]"),
-    SECRET_CODE_MESSAGE("***The secret code is waiting for you, are you ready?"),
-    DECRYPTION_ATTEMPT("Decryption attempts: %d (10 TRIES MAX!!!"),
 
+    TITLE("[*][*][*][*]WELCOME TO THE MASTERMIND[*][*][*][*]" + "\n"),
+    SECRET_CODE_MESSAGE("---The secret code is waiting for you, are you ready?---"+ "\n"),
+    DECRYPTION_ATTEMPT("Decryption attempts: %d/10"),
     DECRYPTION_PROPOSAL("Input your combination: "),
-
-    RESULT(" --> #blacks blacks and #whites whites"),
-    WIN_MESSAGE("You've won!!! ;-)"),
-    RESUME("RESUME? (y/n):"),
-    NULL_MESSAGE();
+    DECRYPTION_RESULTS("Your decryption:  %s --> %d blacks and %d whites"),
+    LOOSER_INFO("YOU LOSE!"),
+    WIN_MESSAGE("WE HAVE A WINNER!!!"),
+    RESUME("Do you want to %s again?");
 
     private String message;
 
-    private GameInfo(){
+    private Console console = Console.instance();
 
-    }
-
-    private GameInfo(String message) {
+    GameInfo(String message) {
         this.message = message;
     }
 
-    void write(String parameterizedMessage) {
-        Console.instance().write(parameterizedMessage);
-    }
-
-    void write(){
+    void write() {
         Console.instance().write(this.message);
     }
 
@@ -34,25 +29,19 @@ enum GameInfo {
         Console.instance().writeln(this.message);
     }
 
-    void writeln(String parameterizedMessage){Console.instance().writeln(parameterizedMessage);}
-
-    void writeln(int blacks, int whites) {
-        assert this == GameInfo.RESULT;
-
-        Console.instance().writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
+    void writeln(int attempts) {
+        assert this == GameInfo.DECRYPTION_ATTEMPT;
+        this.console.writeln(String.format(this.message, attempts));
     }
 
-    @Override
-    public String toString() {
-        return this.message;
+    void writeln(String combination, int blacks, int whites) {
+        assert this == GameInfo.DECRYPTION_RESULTS;
+        this.console.writeln(String.format(this.message, combination, whites, blacks));
     }
 
-
-
-
-
-
-
+    public String getMessage() {
+        return message;
+    }
 
 
 }

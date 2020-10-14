@@ -1,74 +1,97 @@
 package ethanmmd.mastermind;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import ethanmmd.utils.Console;
+
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.nonNull;
 
 public class ProposedCombination extends Combination {
 
-    private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private Result result;
 
-    public void readInput(){
+    public ProposedCombination() {
+        this.result = new Result(0, 0);
+    }
+
+    public void write() {
+        String colorCombination = this.colors.stream().map(Color::getReference).map(Object::toString).collect(Collectors.joining());
+        GameInfo.DECRYPTION_RESULTS.writeln(colorCombination, this.result.getWhitePegs(), this.result.getBlackPegs());
+    }
+
+
+    public void readUserInput() {
         GameError gameError;
         do {
-            System.out.print(GameInfo.DECRYPTION_PROPOSAL);
+            GameInfo.DECRYPTION_PROPOSAL.write();
             gameError = this.checkProposedCombinationFormat(readProposedCombination());
-            if(Objects.nonNull(gameError)){
+            if (nonNull(gameError)) {
                 gameError.writeln();
             }
-            if (Objects.nonNull(gameError)) {
-                this.colorMix = new ArrayList<String>();
+            if (nonNull(gameError)) {
+                this.colors = new ArrayList<Color>();
             }
-
-        } while (Objects.nonNull(gameError));
+        } while (nonNull(gameError));
 
     }
 
-    private GameError checkProposedCombinationFormat(String characters){
-        if (characters.length() != 4) {
+    private GameError checkProposedCombinationFormat(String characters) {
+        if (characters.length() != COMBINATION_LENGHT) {
             return GameError.WRONG_PROPOSAL_LENGHT;
-        }
-
-        if (!checkAllowedColors(characters.toCharArray())) {
+        } else if (!checkAllowedColors(characters.toCharArray())) {
             return GameError.WRONG_COLORES_ADVISE;
         }
-
         return null;
     }
 
     private boolean checkAllowedColors(char[] characters) {
         boolean isAllowed = true;
         for (char color : characters) {
-
-            isAllowed = Color.getAllowedColors().contains(String.valueOf(color));
+            isAllowed = Color.getAllowedColors()
+                    .stream()
+                    .map(Color::getReference)
+                    .collect(Collectors.toList())
+                    .contains(String.valueOf(color));
+            if(isAllowed){
+                this.colors.add(Color.getByReference(String.valueOf(color)));
+            }else{
+                this.colors.clear();
+                break;
+            }
         }
-
         return isAllowed;
     }
 
 
-    private String readProposedCombination(){
-            String input = null;
-            System.out.println("");
-            try {
-                input = this.bufferedReader.readLine();
-            } catch (Exception ex) {
-            }
-            return input;
+    private String readProposedCombination() {
+        String input = null;
+        try {
+            input = Console.instance().readString();
+        } catch (Exception ex) {
         }
-
-    boolean contains(String color, int position) {
-        return this.colorMix.get(position).equals(color);
+        return input;
     }
 
-    boolean contains(String color) {
-        for (int i = 0; i < this.colorMix.size(); i++) {
-            if (this.colorMix.get(i).equals(color)) {
+    boolean contains(Color color, int position) {
+        return this.colors.get(position).equals(color);
+    }
+
+    boolean contains(Color color) {
+        for (int i = 0; i < this.colors.size(); i++) {
+            if (this.colors.get(i).equals(color)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public Result getResult() {
+        return result;
     }
 
 }

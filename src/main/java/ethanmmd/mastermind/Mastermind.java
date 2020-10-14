@@ -1,38 +1,50 @@
 package ethanmmd.mastermind;
 
+import ethanmmd.utils.YesNoDialog;
+
 public class Mastermind {
 
+    private static final String LOSE = "lose";
+    private static final String WIN = "win";
     private Board board;
 
-    public void startGame(){
+    public void startGame() {
+        String result;
         do {
-            this.playGame();
-        }while (this.playAgain());
+            result = this.playGame();
+        } while (this.playAgain(result));
 
     }
 
-    public void playGame(){
-        System.out.println(GameInfo.TITLE.toString());
-        System.out.println(GameInfo.SECRET_CODE_MESSAGE);
-        this.board = new Board(new Turn());
+    public String playGame() {
+        GameInfo.TITLE.writeln();
+        GameInfo.SECRET_CODE_MESSAGE.writeln();
+        this.board = new Board();
         this.board.write();
+        ProposedCombination proposedCombination;
+
         do {
-            ProposedCombination proposedCombination = new ProposedCombination();
-            proposedCombination.readInput();
-            this.board.write();
+            proposedCombination = new ProposedCombination();
+            proposedCombination.readUserInput();
             this.board.addProposedCombination(proposedCombination);
+            this.board.write();
 
-        } while (this.board.isCodeBroken());
+        } while (!this.board.isCodeBroken(proposedCombination));
 
-        ////!this.board.isTicTacToe(this.turn.getToken()));
-        //        //this.turn.writeWinner();
+        String gameResult = LOSE;
+        GameInfo resultMessage = GameInfo.LOOSER_INFO;
 
+        if (this.board.isDecrypted(proposedCombination)) {
+            resultMessage = GameInfo.WIN_MESSAGE;
+            gameResult = WIN;
+        }
 
-
+        resultMessage.writeln();
+        return gameResult;
     }
 
-    public boolean playAgain(){
-        return false;
+    public boolean playAgain(String result) {
+        return new YesNoDialog().read(String.format(GameInfo.RESUME.getMessage(), result));
 
     }
 
