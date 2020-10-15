@@ -1,10 +1,12 @@
 @startuml
 
-package ethanmmd.mastermind
+package mastermind
+package utils
 package java.util
 package java.io
 
-[mastermind.jar] *--> ethanmmd.mastermind
+[mastermind.jar] *--> mastermind
+[mastermind.jar] *--> utils
 [mastermind.jar] *--> java.util
 [mastermind.jar] *--> java.io
 

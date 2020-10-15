@@ -8,7 +8,7 @@ public class Mastermind {
     private static final String WIN = "win";
     private Board board;
 
-    public void startGame() {
+    private void startGame() {
         String result;
         do {
             result = this.playGame();
@@ -16,7 +16,7 @@ public class Mastermind {
 
     }
 
-    public String playGame() {
+    private String playGame() {
         GameInfo.TITLE.writeln();
         GameInfo.SECRET_CODE_MESSAGE.writeln();
         this.board = new Board();
@@ -43,7 +43,7 @@ public class Mastermind {
         return gameResult;
     }
 
-    public boolean playAgain(String result) {
+    private boolean playAgain(String result) {
         return new YesNoDialog().read(String.format(GameInfo.RESUME.getMessage(), result));
 
     }

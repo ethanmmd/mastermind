@@ -1,0 +1,22 @@
+@startuml
+
+package ethanmmd.mastermind #91DF5C{
+
+    class Mastermind{
+        - Board board;
+        - void startGame();
+        - void playGame();
+        - boolean playAgain();
+        + {static} void main(String[] args);
+    }
+
+    class Board{
+        - SecretCombination secretCombination;
+        - List<ProposedCombination> proposedCombinationList;
+
+
+    }
+
+}
+
+@enduml
