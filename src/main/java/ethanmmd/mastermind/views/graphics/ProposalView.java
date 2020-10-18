@@ -1,15 +1,16 @@
 package ethanmmd.mastermind.views.graphics;
 
 
-import ethanmmd.mastermind.controllers.ProposalController;
+import ethanmmd.mastermind.controllers.Logic;
+import ethanmmd.mastermind.controllers.ProposalLogic;
 
 class ProposalView {
 
-    private ProposalController proposalController;
-    private SecretCombinationView secretCombinationView;
+    private ProposalLogic proposalLogic;
+    private final SecretCombinationView secretCombinationView;
 
-    ProposalView(ProposalController proposalController) {
-        this.proposalController = proposalController;
+    ProposalView(ProposalLogic proposalLogic) {
+        this.proposalLogic = proposalLogic;
         this.secretCombinationView = new SecretCombinationView();
     }
 

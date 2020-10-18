@@ -1,7 +1,6 @@
 package ethanmmd.mastermind.views.graphics;
 
-import ethanmmd.mastermind.controllers.ProposalController;
-import ethanmmd.mastermind.controllers.ResumeController;
+import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.views.ResumeView;
 
 public class View extends ethanmmd.mastermind.views.View {
@@ -10,10 +9,11 @@ public class View extends ethanmmd.mastermind.views.View {
     private ProposalView proposalView;
     private ResumeView resumeView;
 
-    public View(ProposalController proposalController, ResumeController resumeController) {
+    public View(Logic logic) {
+        super(logic);
         this.startView = new StartView();
-        this.proposalView = new ProposalView(proposalController);
-        this.resumeView = new ResumeView(resumeController);
+        this.proposalView = new ProposalView(this.logic);
+        this.resumeView = new ResumeView(this.logic);
     }
 
     @Override

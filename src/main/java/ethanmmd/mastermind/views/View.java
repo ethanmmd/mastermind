@@ -1,7 +1,15 @@
 package ethanmmd.mastermind.views;
 
 
+import ethanmmd.mastermind.controllers.Logic;
+
 public abstract class View {
+
+    protected Logic logic;
+
+    public View(Logic logic) {
+        this.logic = logic;
+    }
 
     public void interact() {
         do {

@@ -1,7 +1,9 @@
 package ethanmmd.mastermind.views.console;
 
 
+import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.controllers.ProposalController;
+import ethanmmd.mastermind.controllers.ProposalLogic;
 import ethanmmd.mastermind.models.Game;
 import ethanmmd.mastermind.models.ProposedCombination;
 import ethanmmd.mastermind.views.MessageView;
@@ -9,12 +11,11 @@ import ethanmmd.utils.WithConsoleView;
 
 class ProposalView extends WithConsoleView {
 
+    private ProposalLogic proposalLogic;
     private SecretCombinationView secretCombinationView;
 
-    private ProposalController proposalController;
-
-    public ProposalView(ProposalController proposalController) {
-        this.proposalController = proposalController;
+    public ProposalView(ProposalLogic proposalLogic) {
+        this.proposalLogic = proposalLogic;
         this.secretCombinationView = new SecretCombinationView();
     }
 
@@ -22,18 +23,18 @@ class ProposalView extends WithConsoleView {
         ProposedCombination proposedCombination = new ProposedCombination();
         ProposedCombinationView proposedCombinationView = new ProposedCombinationView(proposedCombination);
         proposedCombinationView.read();
-        this.proposalController.addProposedCombination(proposedCombination);
+        this.proposalLogic.addProposedCombination(proposedCombination);
         this.console.writeln();
-        MessageView.ATTEMPTS.writeln(this.proposalController.getAttempts());
+        MessageView.ATTEMPTS.writeln(this.proposalLogic.getAttempts());
         this.secretCombinationView.writeln();
-        for (int i = 0; i < this.proposalController.getAttempts(); i++) {
-            new ProposedCombinationView(this.proposalController.getProposedCombination(i)).write();
-            new ResultView(this.proposalController.getResult(i)).writeln();
+        for (int i = 0; i < this.proposalLogic.getAttempts(); i++) {
+            new ProposedCombinationView(this.proposalLogic.getProposedCombination(i)).write();
+            new ResultView(this.proposalLogic.getResult(i)).writeln();
         }
-        if (this.proposalController.isWinner()) {
+        if (this.proposalLogic.isWinner()) {
             MessageView.WINNER.writeln();
             return true;
-        } else if (this.proposalController.isLooser()) {
+        } else if (this.proposalLogic.isLooser()) {
             MessageView.LOOSER.writeln();
             return true;
         }
