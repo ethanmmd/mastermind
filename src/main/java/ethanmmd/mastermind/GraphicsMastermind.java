@@ -4,22 +4,14 @@ package ethanmmd.mastermind;
 import ethanmmd.mastermind.models.Game;
 import ethanmmd.mastermind.views.graphics.View;
 
-public class GraphicsMastermind {
+class GraphicsMastermind extends Mastermind {
 
-    private Game game;
-    private View view;
-
-    private GraphicsMastermind() {
-        this.game = new Game();
-        this.view = new View(this.game);
-    }
-
-    private void play() {
-        this.view.interact();
+    @Override
+    protected View createView(Game game) {
+        return new View(game);
     }
 
     public static void main(String[] args) {
         new GraphicsMastermind().play();
     }
-
 }
