@@ -1,63 +1,62 @@
-# MASTERMIND PROJECT - DOMAIN MODEL
+<h1 align="center">Welcome to TicTacToe. Solución 5.2. ** modelViewPresenter.presentationModel ** 👋</h1>
+<p>
+  <a href="/docs" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-* Autor: Izan Santana Alonso - ethanmmd@gmail.com
-* Versión: 1.0.0-SNAPSHOT
+> TicTacToe. Solución dv.withFactoryMethod
+<br>
+>This solution is based on teacher's *documentView* solution
 
-## Indice
-   * Requisitos 
-   * Modelo del dominio
-   * Vista Lógica/Diseño
-        * Arquitectura
-        * Paquetes
-   * Calidad del software
-   * Vista de desarrollo/implementación
-   * Vista de despliegue
-   * Vista de procesos
+## Install
 
-### Requisitos
- 
- ![MasterMind 5 colors](pics/Mastermind.jpg) 
- 
- [Wiki](https://en.wikipedia.org/wiki/Mastermind_(board_game)) - [Youtube](https://www.youtube.com/watch?v=2-hTeg2M6GQ)
- 
- * Funcionalidad: *Básica*
- * Interfaz: texto
- * Distribución: standalone
- * Persistencia: no
+```sh
+mvn install
+```
 
-### Modelo de dominio
- 
-  ![Vocabulario](diagrams/Vocabulary.png)
+## Usage
 
-### Vista lógica/diseño
+For Console edition:
 
-Aplicación del Modelo del Dominio mediante Estrategias de Análisis Formal, Análisis Clásico, Experto del Dominio, Reparto de Responsabilidades.
- 
-#### Arquitectura
+```sh
+<mainClass>ethanmmd.mastermind.ConsoleMastermind</mainClass>
+```
+And then:
 
-![Arquitectura](pics/Architecture.png)
+```sh
+mvn clean
+mvn package
+java -jar target/mastermind-1.0.0-SNAPSHOT.jar
+```
 
-#### Paquetes
-![Paquetes](pics/Packages.png)
+For Graphics edition(currenty not working):
+
+```sh
+<mainClass>ethanmmd.mastermind.GraphicsMastermind</mainClass>
+```
+And then:
+
+```sh
+mvn clean
+mvn package
+java -jar target/mastermind-1.0.0-SNAPSHOT.jar
+```
+
+## Run tests
+
+```sh
+mvn test
+```
+
+## Author
+
+👤 **USantaTecla**
+
+* Github: [@USantaTecla](https://github.com/USantaTecla)
 
 
-### Calidad del Software
-
-#### Diseño
-    * Método largo: Método "play" de MastermindGameLauncher...
-
-#### Rediseño
-    * Nueva interfaz: Gráfica    
-    * Clases Grandes: los Modelos asumen la responsabilidad y crecen en líneas, métodos y atributos con cada nueva tecnología
-    * Alto acoplamiento: los Modelos con cada nueva tecnología de interfaz (consola, gráficos, web)
-    * Baja cohesión: cada Modelo está gestionando sus atributos y las tecnologías de interfaz
-    * Open/Close: hay que modificar los modelos que estaban funcionando previamente para escoger una tecnología de vista u otra (if’s anidados)
-
-### Vista de Desarrollo/Implantación
-![DevelopmentImplementation](pics/DevelopmentImplementation.png)    
-
-### Vista de Despliegue/Física
-![Despliegue](pics/Despliegue.png)
-
-### Vista de Procesos
-* No hay concurrencia
+Note that you should have to [install JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and [Maven](https://maven.apache.org/install.html) as prerequisite.
