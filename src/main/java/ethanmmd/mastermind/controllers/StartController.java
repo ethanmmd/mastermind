@@ -10,4 +10,10 @@ public class StartController extends Controller {
     public StartController(Game game, Status status) {
         super(game, status);
     }
+
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+        controllerVisitor.visit(this);
+
+    }
 }

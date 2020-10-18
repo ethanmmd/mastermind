@@ -1,12 +1,9 @@
 package ethanmmd.mastermind.views.graphics;
 
-import ethanmmd.mastermind.controllers.Controller;
-import ethanmmd.mastermind.controllers.ProposalController;
-import ethanmmd.mastermind.controllers.ResumeController;
-import ethanmmd.mastermind.controllers.StartController;
+import ethanmmd.mastermind.controllers.*;
 import ethanmmd.mastermind.views.ResumeView;
 
-public class View extends ethanmmd.mastermind.views.View {
+public class View extends ethanmmd.mastermind.views.View implements ControllerVisitor {
 
     private StartView startView;
     private ProposalView proposalView;
@@ -20,15 +17,21 @@ public class View extends ethanmmd.mastermind.views.View {
 
     @Override
     public void interact(Controller controller) {
-        if (controller instanceof StartController) {
-            this.startView.interact((StartController) controller);
-        } else {
-            if (controller instanceof ProposalController) {
-                this.proposalView.interact((ProposalController) controller);
-            } else {
-                this.resumeView.interact((ResumeController) controller);
-            }
-        }
+        controller.accept(this);
+    }
 
+    @Override
+    public void visit(StartController startController) {
+        this.startView.interact(startController);
+    }
+
+    @Override
+    public void visit(ProposalController proposalController) {
+        this.proposalView.interact(proposalController);
+    }
+
+    @Override
+    public void visit(ResumeController resumeController) {
+        this.resumeView.interact(resumeController);
     }
 }

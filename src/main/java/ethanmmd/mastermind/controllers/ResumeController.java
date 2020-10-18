@@ -14,6 +14,12 @@ public class ResumeController extends Controller{
         this.status.reset();
     }
 
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+        controllerVisitor.visit(this);
+
+    }
+
 
 
 

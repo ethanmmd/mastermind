@@ -34,4 +34,10 @@ public class ProposalController extends Controller {
     public boolean isWinner() {
         return this.game.isWinner();
     }
+
+    @Override
+    public void accept(ControllerVisitor controllerVisitor) {
+        controllerVisitor.visit(this);
+
+    }
 }
