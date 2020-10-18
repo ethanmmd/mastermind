@@ -1,7 +1,10 @@
 package ethanmmd.mastermind;
 
+import ethanmmd.mastermind.controllers.Controller;
 import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.views.View;
+
+import static java.util.Objects.nonNull;
 
 public abstract class Mastermind {
 
@@ -11,13 +14,18 @@ public abstract class Mastermind {
 
     protected Mastermind() {
         this.logic = new Logic();
-        this.view = this.createView(this.logic);
-
+        this.view = this.createView();
     }
 
-    protected abstract View createView(Logic logic);
+    protected abstract View createView();
 
     protected void play() {
-        this.view.interact();
+        Controller controller;
+        do {
+            controller = this.logic.getController();
+            if (nonNull(controller)) {
+                this.view.interact(controller);
+            }
+        } while (nonNull(controller));
     }
 }

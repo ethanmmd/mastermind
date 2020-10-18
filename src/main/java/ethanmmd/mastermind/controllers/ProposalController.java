@@ -3,13 +3,12 @@ package ethanmmd.mastermind.controllers;
 import ethanmmd.mastermind.models.Game;
 import ethanmmd.mastermind.models.ProposedCombination;
 import ethanmmd.mastermind.models.Result;
+import ethanmmd.mastermind.models.Status;
 
-public class ProposalController {
+public class ProposalController extends Controller {
 
-    private Game game;
-
-    public ProposalController(Game game) {
-        this.game = game;
+    public ProposalController(Game game, Status status) {
+        super(game, status);
     }
 
     public void addProposedCombination(ProposedCombination proposedCombination) {

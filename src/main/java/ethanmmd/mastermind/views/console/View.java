@@ -1,6 +1,9 @@
 package ethanmmd.mastermind.views.console;
 
-import ethanmmd.mastermind.controllers.Logic;
+import ethanmmd.mastermind.controllers.Controller;
+import ethanmmd.mastermind.controllers.ProposalController;
+import ethanmmd.mastermind.controllers.ResumeController;
+import ethanmmd.mastermind.controllers.StartController;
 import ethanmmd.mastermind.views.ResumeView;
 
 public class View extends ethanmmd.mastermind.views.View {
@@ -9,29 +12,23 @@ public class View extends ethanmmd.mastermind.views.View {
     private ProposalView proposalView;
     private ResumeView resumeView;
 
-    public View(Logic logic) {
-        super(logic);
+    public View() {
         this.startView = new StartView();
-        this.proposalView = new ProposalView(this.logic);
-        this.resumeView = new ResumeView(this.logic);
+        this.proposalView = new ProposalView();
+        this.resumeView = new ResumeView();
     }
 
     @Override
-    protected void start() {
-        this.startView.interact();
-
-    }
-
-    @Override
-    protected boolean propose() {
-        return this.proposalView.interact();
-
-    }
-
-
-    @Override
-    protected boolean resume() {
-        return this.resumeView.interact();
+    public void interact(Controller controller) {
+        if (controller instanceof StartController) {
+            this.startView.interact((StartController) controller);
+        } else {
+            if (controller instanceof ProposalController) {
+                this.proposalView.interact((ProposalController) controller);
+            } else {
+                this.resumeView.interact((ResumeController) controller);
+            }
+        }
 
     }
 }

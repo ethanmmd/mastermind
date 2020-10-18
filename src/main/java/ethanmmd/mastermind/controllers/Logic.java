@@ -1,53 +1,30 @@
 package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Game;
-import ethanmmd.mastermind.models.ProposedCombination;
-import ethanmmd.mastermind.models.Result;
+import ethanmmd.mastermind.models.GameStatus;
+import ethanmmd.mastermind.models.Status;
 
-public class Logic implements ProposalLogic, ResumeLogic {
+import java.util.HashMap;
+import java.util.Map;
 
-    protected Game game;
-    protected ProposalController proposalController;
-    protected ResumeController resumeController;
+public class Logic {
+
+    private Game game;
+    private Status status;
+    private Map<GameStatus, Controller> controllerMap;
+
 
     public Logic() {
+        this.status = new Status();
         this.game = new Game();
-        this.proposalController = new ProposalController(this.game);
-        this.resumeController = new ResumeController(this.game);
+        this.controllerMap = new HashMap<>();
+        this.controllerMap.put(GameStatus.STARTED, new StartController(this.game, this.status));
+        this.controllerMap.put(GameStatus.PROPOSED, new ProposalController(this.game, this.status));
+        this.controllerMap.put(GameStatus.RESUMED, new ResumeController(this.game, this.status));
+        this.controllerMap.put(GameStatus.EXIT, null);
     }
 
-    @Override
-    public void addProposedCombination(ProposedCombination proposedCombination) {
-        this.proposalController.addProposedCombination(proposedCombination);
-    }
-
-    @Override
-    public int getAttempts() {
-        return this.proposalController.getAttempts();
-    }
-
-    @Override
-    public ProposedCombination getProposedCombination(int position) {
-        return this.proposalController.getProposedCombination(position);
-    }
-
-    @Override
-    public Result getResult(int position) {
-        return this.proposalController.getResult(position);
-    }
-
-    @Override
-    public boolean isLooser() {
-        return this.proposalController.isLooser();
-    }
-
-    @Override
-    public boolean isWinner() {
-        return this.proposalController.isWinner();
-    }
-
-    @Override
-    public void clear() {
-        this.resumeController.clear();
+    public Controller getController() {
+        return this.controllerMap.get(this.status.getGameStatus());
     }
 }
