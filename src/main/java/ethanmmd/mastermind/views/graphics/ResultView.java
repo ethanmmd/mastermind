@@ -6,7 +6,7 @@ import ethanmmd.mastermind.views.MessageView;
 import ethanmmd.utils.WithConsoleView;
 import ethanmmd.utils.WithGraphicsView;
 
-class ResultView extends WithGraphicsView {
+class ResultView {
 	
 	private Result result;
 

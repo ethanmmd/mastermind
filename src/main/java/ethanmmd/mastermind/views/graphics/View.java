@@ -1,6 +1,7 @@
 package ethanmmd.mastermind.views.graphics;
 
-import ethanmmd.mastermind.models.Game;
+import ethanmmd.mastermind.controllers.ProposalController;
+import ethanmmd.mastermind.controllers.ResumeController;
 import ethanmmd.mastermind.views.ResumeView;
 
 public class View extends ethanmmd.mastermind.views.View {
@@ -9,11 +10,10 @@ public class View extends ethanmmd.mastermind.views.View {
     private ProposalView proposalView;
     private ResumeView resumeView;
 
-    public View(Game game) {
-        super(game);
+    public View(ProposalController proposalController, ResumeController resumeController) {
         this.startView = new StartView();
-        this.proposalView = new ProposalView(this.game);
-        this.resumeView = new ResumeView(this.game);
+        this.proposalView = new ProposalView(proposalController);
+        this.resumeView = new ResumeView(resumeController);
     }
 
     @Override
