@@ -1,5 +1,6 @@
 package ethanmmd.mastermind;
 
+import ethanmmd.mastermind.controllers.AcceptorController;
 import ethanmmd.mastermind.controllers.Controller;
 import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.views.View;
@@ -20,7 +21,7 @@ public abstract class Mastermind {
     protected abstract View createView();
 
     protected void play() {
-        Controller controller;
+        AcceptorController controller;
         do {
             controller = this.logic.getController();
             if (nonNull(controller)) {

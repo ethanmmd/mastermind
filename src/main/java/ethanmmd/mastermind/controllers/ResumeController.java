@@ -1,17 +1,19 @@
 package ethanmmd.mastermind.controllers;
 
-import ethanmmd.mastermind.models.Game;
-import ethanmmd.mastermind.models.Status;
+import ethanmmd.mastermind.models.Session;
 
-public class ResumeController extends Controller{
+public class ResumeController extends UseCaseController implements AcceptorController {
 
-    public ResumeController(Game game, Status status) {
-        super(game, status);
+    public ResumeController(Session session) {
+        super(session);
     }
 
-    public void clear(){
-        this.game.clear();
-        this.status.reset();
+    public void clear(boolean isResumed) {
+        if (isResumed) {
+            this.session.reset();
+        } else {
+            this.session.next();
+        }
     }
 
     @Override
@@ -19,8 +21,6 @@ public class ResumeController extends Controller{
         controllerVisitor.visit(this);
 
     }
-
-
 
 
 }

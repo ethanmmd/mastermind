@@ -1,14 +1,12 @@
 package ethanmmd.mastermind.controllers;
 
-import ethanmmd.mastermind.models.Game;
-import ethanmmd.mastermind.models.ProposedCombination;
-import ethanmmd.mastermind.models.Result;
-import ethanmmd.mastermind.models.Status;
+import ethanmmd.mastermind.models.Session;
 
-public class StartController extends Controller {
+public class StartController extends UseCaseController implements AcceptorController {
 
-    public StartController(Game game, Status status) {
-        super(game, status);
+
+    public StartController(Session session) {
+        super(session);
     }
 
     @Override
