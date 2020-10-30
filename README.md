@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to TicTacToe. Solución 8.2. ** mvp.pm.withDoubleDispatching ** 👋</h1>
+<h1 align="center">Welcome to TicTacToe. Solución 9.3 ** mvp.pm.withComposite ** 👋</h1>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> TicTacToe. Solución dv.withFactoryMethod
+> TicTacToe. Solución mvp.pm.withComposite
 <br>
 >This solution is based on teacher's *documentView* solution
 
