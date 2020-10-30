@@ -1,9 +1,8 @@
 package ethanmmd.mastermind.controllers;
 
-import ethanmmd.mastermind.models.Session;
+import ethanmmd.mastermind.models.*;
 
-public class StartController extends UseCaseController implements AcceptorController {
-
+public class StartController extends Controller implements AcceptorController{
 
     public StartController(Session session) {
         super(session);

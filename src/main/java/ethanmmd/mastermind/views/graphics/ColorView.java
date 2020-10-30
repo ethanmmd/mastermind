@@ -2,7 +2,6 @@ package ethanmmd.mastermind.views.graphics;
 
 
 import ethanmmd.mastermind.models.Color;
-import ethanmmd.utils.WithConsoleView;
 import ethanmmd.utils.WithGraphicsView;
 
 class ColorView extends WithGraphicsView {
@@ -16,11 +15,11 @@ class ColorView extends WithGraphicsView {
     }
 
     static String allInitials() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (char character : ColorView.INITIALS) {
-            result += character;
+            result.append(character);
         }
-        return result;
+        return result.toString();
     }
 
     static Color getInstance(char character) {

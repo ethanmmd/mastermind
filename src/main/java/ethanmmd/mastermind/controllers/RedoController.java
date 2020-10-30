@@ -2,9 +2,9 @@ package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Session;
 
-public class RedoController extends UseCaseController {
+public class RedoController extends Controller {
 
-    public RedoController(Session session) {
+    RedoController(Session session) {
         super(session);
     }
 

@@ -15,14 +15,14 @@ class ColorView extends WithConsoleView {
     }
 
     static String allInitials() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (char character : ColorView.INITIALS) {
-            result += character;
+            result.append(character);
         }
-        return result;
+        return result.toString();
     }
 
-    static Color getInstance(char character) {
+    public static Color getInstance(char character) {
         for (int i = 0; i < ColorView.INITIALS.length; i++) {
             if (ColorView.INITIALS[i] == character) {
                 return Color.values()[i];
@@ -31,7 +31,7 @@ class ColorView extends WithConsoleView {
         return null;
     }
 
-    void write() {
+    public void write() {
         this.console.write(ColorView.INITIALS[this.color.ordinal()]);
     }
 

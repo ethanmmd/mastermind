@@ -1,7 +1,6 @@
 package ethanmmd.mastermind;
 
 import ethanmmd.mastermind.controllers.AcceptorController;
-import ethanmmd.mastermind.controllers.Controller;
 import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.views.View;
 

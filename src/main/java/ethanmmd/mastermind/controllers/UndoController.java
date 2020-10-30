@@ -2,18 +2,18 @@ package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Session;
 
-public class UndoController extends UseCaseController {
+public class UndoController extends Controller {
 
-    public UndoController(Session session) {
+
+    UndoController(Session session) {
         super(session);
     }
 
-    void undo() {
+    public void undo() {
         this.session.undo();
     }
 
-    boolean undoable() {
+    public boolean undoable() {
         return this.session.undoable();
     }
-
 }

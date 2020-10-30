@@ -5,8 +5,8 @@ import java.util.List;
 
 public class GameRegistry {
 
-    private List<GameMemento> gameMementoList;
     private final Game game;
+    private List<Game.GameVersion> gameVersions;
     private int firstPrevious;
 
     public GameRegistry(Game game) {
@@ -15,36 +15,35 @@ public class GameRegistry {
     }
 
     void reset() {
-        this.gameMementoList = new ArrayList<>();
+        this.gameVersions = new ArrayList<>();
         this.firstPrevious = 0;
     }
 
     void registry() {
         for (int i = 0; i < this.firstPrevious; i++) {
-            this.gameMementoList.remove(0);
+            this.gameVersions.remove(0);
         }
+
         this.firstPrevious = 0;
-        this.gameMementoList.add(this.firstPrevious, this.game.createGameMemento());
+        this.gameVersions.add(this.firstPrevious, this.game.createGameVersion());
     }
 
     void undo() {
-        if (this.gameMementoList.size() > 0)
-            this.firstPrevious++;
-        this.game.set(this.gameMementoList.get(this.firstPrevious));
+        this.firstPrevious++;
+        this.game.setGameVersion(this.gameVersions.get(this.firstPrevious));
     }
 
     void redo() {
         this.firstPrevious--;
-        this.game.set(this.gameMementoList.get(this.firstPrevious));
+        this.game.setGameVersion(this.gameVersions.get(this.firstPrevious));
     }
 
     boolean undoable() {
-        return this.firstPrevious < this.gameMementoList.size() - 1;
-
+        return this.firstPrevious < this.gameVersions.size() - 1;
     }
 
     boolean redoable() {
         return this.firstPrevious >= 1;
-
     }
+
 }

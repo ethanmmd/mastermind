@@ -10,7 +10,7 @@ public class ResumeView {
         MessageView.RESUME.write();
         boolean newGame = new YesNoDialog().read();
         if (newGame) {
-            resumeController.clear();
+            resumeController.resume();
         } else {
             resumeController.next();
         }

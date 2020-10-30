@@ -1,23 +1,18 @@
 package ethanmmd.mastermind.controllers;
 
-import ethanmmd.mastermind.models.Game;
-import ethanmmd.mastermind.models.Status;
+import ethanmmd.mastermind.models.Session;
 
 public abstract class Controller {
 
-    protected Game game;
-    protected Status status;
+    protected Session session;
 
-    public Controller(Game game, Status status) {
-        this.game = game;
-        this.status = status;
+    Controller(Session session) {
+        this.session = session;
     }
 
     public void next() {
-        this.status.next();
+        this.session.next();
     }
-
-    public abstract void accept(ControllerVisitor controllerVisitor);
 
 
 }

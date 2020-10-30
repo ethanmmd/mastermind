@@ -1,9 +1,10 @@
 package ethanmmd.mastermind.views.console;
 
 
-import ethanmmd.mastermind.models.SecretCombination;
 import ethanmmd.mastermind.views.MessageView;
 import ethanmmd.utils.WithConsoleView;
+
+import static ethanmmd.mastermind.models.SecretCombination.getWidth;
 
 class SecretCombinationView extends WithConsoleView {
 
@@ -12,7 +13,7 @@ class SecretCombinationView extends WithConsoleView {
     }
 
     void writeln() {
-        for (int i = 0; i < SecretCombination.getWidth(); i++) {
+        for (int i = 0; i < getWidth(); i++) {
             MessageView.SECRET.write();
         }
         this.console.writeln();

@@ -1,13 +1,13 @@
 package ethanmmd.mastermind;
 
 
-import ethanmmd.mastermind.views.graphics.View;
+import ethanmmd.mastermind.views.graphics.GraphicsView;
 
 class GraphicsMastermind extends Mastermind {
 
     @Override
-    protected View createView() {
-        return new View();
+    protected GraphicsView createView() {
+        return new GraphicsView();
     }
 
     public static void main(String[] args) {

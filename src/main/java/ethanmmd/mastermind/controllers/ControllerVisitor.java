@@ -4,7 +4,7 @@ public interface ControllerVisitor {
 
     void visit(StartController startController);
 
-    void visit(PlayController playController);
+    void visit(ProposalController proposalController);
 
     void visit(ResumeController resumeController);
 

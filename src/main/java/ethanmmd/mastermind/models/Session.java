@@ -2,43 +2,33 @@ package ethanmmd.mastermind.models;
 
 public class Session {
 
-    private final Status status;
     private final Game game;
     private final GameRegistry gameRegistry;
+    private final Status status;
 
     public Session() {
-        this.status = new Status();
         this.game = new Game();
         this.gameRegistry = new GameRegistry(this.game);
+        this.status = new Status();
     }
 
-    public void next() {
-        this.status.next();
-    }
-
-    public GameStatus getGameStatus() {
-        return this.status.getGameStatus();
-    }
-
-    public boolean undoable() {
-        return this.gameRegistry.undoable();
-    }
-
-    public boolean redoable() {
-        return this.gameRegistry.redoable();
-    }
-
-    public void undo() {
-        this.gameRegistry.undo();
-    }
-
-    public void redo() {
-        this.gameRegistry.redo();
+    public void clear() {
+        this.game.clear();
+        this.gameRegistry.reset();
+        this.status.reset();
     }
 
     public void addProposedCombination(ProposedCombination proposedCombination) {
         this.game.addProposedCombination(proposedCombination);
         this.gameRegistry.registry();
+    }
+
+    public boolean isLooser() {
+        return this.game.isLooser();
+    }
+
+    public boolean isWinner() {
+        return this.game.isWinner();
     }
 
     public int getAttempts() {
@@ -53,26 +43,27 @@ public class Session {
         return this.game.getResult(position);
     }
 
-    public boolean isWinner() {
-        boolean isWinner = this.game.isWinner();
-        if (isWinner) {
-            this.next();
-        }
-        return isWinner;
+    public void undo() {
+        this.gameRegistry.undo();
     }
 
-    public boolean isLooser() {
-        boolean isLooser = this.game.isLooser();
-        if (isLooser) {
-            this.next();
-        }
-        return isLooser;
+    public void redo() {
+        this.gameRegistry.redo();
     }
 
-    public void reset() {
-        this.game.clear();
-        this.gameRegistry.reset();
-        this.status.reset();
+    public boolean undoable() {
+        return this.gameRegistry.undoable();
     }
 
+    public boolean redoable() {
+        return this.gameRegistry.redoable();
+    }
+
+    public void next() {
+        this.status.next();
+    }
+
+    public GameStatus getGameState() {
+        return this.status.getGameStatus();
+    }
 }

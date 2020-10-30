@@ -10,7 +10,7 @@ import ethanmmd.utils.WithConsoleView;
 
 class ProposedCombinationView extends WithConsoleView {
 
-    private ProposedCombination proposedCombination;
+    private final ProposedCombination proposedCombination;
 
     ProposedCombinationView(ProposedCombination proposedCombination) {
         this.proposedCombination = proposedCombination;
