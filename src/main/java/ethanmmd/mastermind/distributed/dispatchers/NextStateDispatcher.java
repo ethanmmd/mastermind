@@ -2,15 +2,15 @@ package ethanmmd.mastermind.distributed.dispatchers;
 
 import ethanmmd.mastermind.controllers.ProposalController;
 
-public class NextStatusDispatcher extends Dispatcher {
+public class NextStateDispatcher extends Dispatcher {
 
-    public NextStatusDispatcher(ProposalController proposalController) {
+    public NextStateDispatcher(ProposalController proposalController) {
         super(proposalController);
     }
 
     @Override
     public void dispatch() {
-        ((ProposalController) this.acceptorController).next();
+        this.acceptorController.next();
 
     }
 }

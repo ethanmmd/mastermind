@@ -3,43 +3,35 @@ package ethanmmd.mastermind.controllers;
 import ethanmmd.mastermind.models.ProposedCombination;
 import ethanmmd.mastermind.models.Result;
 import ethanmmd.mastermind.models.Session;
-import ethanmmd.mastermind.models.SessionImplementation;
 
 public class ActionController extends Controller {
 
-    private final SessionImplementation sessionImplementation;
-
     public ActionController(Session session) {
         super(session);
-        this.sessionImplementation = (SessionImplementation) session;
     }
 
     public void addProposedCombination(ProposedCombination proposedCombination) {
-        this.sessionImplementation.addProposedCombination(proposedCombination);
+        this.session.addProposedCombination(proposedCombination);
     }
 
-    public boolean isLooser() {
-        return this.sessionImplementation.isLooser();
+    boolean isLooser() {
+        return this.session.isLooser();
     }
 
-    public boolean isWinner() {
-        return this.sessionImplementation.isWinner();
+    boolean isWinner() {
+        return this.session.isWinner();
     }
 
-    public int getAttempts() {
-        return this.sessionImplementation.getAttempts();
+    int getAttempts() {
+        return this.session.getAttempts();
     }
 
-    public ProposedCombination getProposedCombination(int position) {
-        return this.sessionImplementation.getProposedCombination(position);
+    ProposedCombination getProposedCombination(int position) {
+        return this.session.getProposedCombination(position);
     }
 
-    public Result getResult(int position) {
-        return this.sessionImplementation.getResult(position);
-    }
-
-    public void next() {
-        this.sessionImplementation.next();
+    Result getResult(int position) {
+        return this.session.getResult(position);
     }
 
 
