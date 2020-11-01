@@ -1,5 +1,6 @@
 package ethanmmd.mastermind.controllers;
 
+import ethanmmd.mastermind.models.GameStatus;
 import ethanmmd.mastermind.models.Session;
 
 public abstract class Controller {
@@ -12,6 +13,10 @@ public abstract class Controller {
 
     public void next() {
         this.session.next();
+    }
+
+    public GameStatus getGameStatus() {
+        return this.session.getGameState();
     }
 
 

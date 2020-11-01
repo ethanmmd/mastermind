@@ -10,6 +10,11 @@ class GraphicsMastermind extends Mastermind {
         return new GraphicsView();
     }
 
+    @Override
+    protected boolean isStandalone() {
+        return true;
+    }
+
     public static void main(String[] args) {
         new GraphicsMastermind().play();
     }

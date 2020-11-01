@@ -50,5 +50,4 @@ class ProposedCombinationView extends WithConsoleView {
             }
         } while (error != null);
     }
-
 }

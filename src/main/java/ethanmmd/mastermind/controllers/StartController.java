@@ -1,11 +1,23 @@
 package ethanmmd.mastermind.controllers;
 
-import ethanmmd.mastermind.models.*;
+import ethanmmd.mastermind.distributed.TCPIP;
+import ethanmmd.mastermind.distributed.dispatchers.FrameType;
+import ethanmmd.mastermind.models.Session;
 
-public class StartController extends Controller implements AcceptorController{
+import static java.util.Objects.isNull;
 
-    public StartController(Session session) {
-        super(session);
+public class StartController extends AcceptorController {
+
+    public StartController(Session session, TCPIP tcpip) {
+        super(session, tcpip);
+    }
+
+    public void start() {
+        if (isNull(this.tcpip)) {
+            this.session.next();
+        } else {
+            this.tcpip.send(FrameType.START.name());
+        }
     }
 
     @Override

@@ -10,6 +10,11 @@ class ConsoleMastermind extends Mastermind {
         return new ConsoleView();
     }
 
+    @Override
+    protected boolean isStandalone() {
+        return true;
+    }
+
     public static void main(String[] args) {
         new ConsoleMastermind().play();
     }

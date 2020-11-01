@@ -1,15 +1,22 @@
 package ethanmmd.mastermind.models;
 
+import ethanmmd.mastermind.distributed.TCPIP;
+import ethanmmd.mastermind.distributed.dispatchers.FrameType;
+
+import static java.util.Objects.isNull;
+
 public class Session {
 
     private final Game game;
     private final GameRegistry gameRegistry;
     private final Status status;
+    private final TCPIP tcpip;
 
-    public Session() {
+    public Session(TCPIP tcpip) {
         this.game = new Game();
         this.gameRegistry = new GameRegistry(this.game);
         this.status = new Status();
+        this.tcpip = tcpip;
     }
 
     public void clear() {
@@ -64,6 +71,10 @@ public class Session {
     }
 
     public GameStatus getGameState() {
-        return this.status.getGameStatus();
+        if (isNull(this.tcpip)) {
+            return this.status.getGameStatus();
+        }
+        this.tcpip.send(FrameType.STATUS.name());
+        return GameStatus.values()[this.tcpip.receiveInt()];
     }
 }

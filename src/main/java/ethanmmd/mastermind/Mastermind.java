@@ -13,11 +13,9 @@ public abstract class Mastermind {
 
 
     protected Mastermind() {
-        this.logic = new Logic();
+        this.logic = new Logic(this.isStandalone());
         this.view = this.createView();
     }
-
-    protected abstract View createView();
 
     protected void play() {
         AcceptorController controller;
@@ -28,4 +26,8 @@ public abstract class Mastermind {
             }
         } while (nonNull(controller));
     }
+
+    protected abstract View createView();
+
+    protected abstract boolean isStandalone();
 }
