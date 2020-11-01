@@ -9,7 +9,7 @@ class StartView {
     void interact(StartController startController) {
         MessageView.TITLE.writeln();
         new SecretCombinationView().writeln();
-        startController.next();
+        startController.start();
     }
 
 }

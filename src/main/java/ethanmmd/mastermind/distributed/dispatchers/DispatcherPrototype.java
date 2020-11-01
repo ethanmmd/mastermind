@@ -2,7 +2,6 @@ package ethanmmd.mastermind.distributed.dispatchers;
 
 import ethanmmd.mastermind.distributed.TCPIP;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 

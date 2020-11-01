@@ -1,18 +1,23 @@
 package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Session;
+import ethanmmd.mastermind.models.SessionImplementation;
 
 public class RedoController extends Controller {
 
-    RedoController(Session session) {
+    private final SessionImplementation sessionImplementation;
+
+    public RedoController(Session session) {
         super(session);
+        this.sessionImplementation = (SessionImplementation) session;
+
     }
 
     public void redo() {
-        this.session.redo();
+        this.sessionImplementation.redo();
     }
 
     public boolean redoable() {
-        return this.session.redoable();
+        return this.sessionImplementation.redoable();
     }
 }

@@ -1,6 +1,7 @@
 package ethanmmd.mastermind;
 
 
+import ethanmmd.mastermind.controllers.Logic;
 import ethanmmd.mastermind.views.graphics.GraphicsView;
 
 class GraphicsMastermind extends Mastermind {
@@ -11,8 +12,8 @@ class GraphicsMastermind extends Mastermind {
     }
 
     @Override
-    protected boolean isStandalone() {
-        return true;
+    protected Logic createLogic() {
+        return null;
     }
 
     public static void main(String[] args) {

@@ -13,7 +13,7 @@ public abstract class Mastermind {
 
 
     protected Mastermind() {
-        this.logic = new Logic(this.isStandalone());
+        this.logic = this.createLogic();
         this.view = this.createView();
     }
 
@@ -29,5 +29,6 @@ public abstract class Mastermind {
 
     protected abstract View createView();
 
-    protected abstract boolean isStandalone();
+    protected abstract Logic createLogic();
+
 }
