@@ -4,35 +4,29 @@ package ethanmmd.mastermind.views.console;
 import ethanmmd.mastermind.models.Color;
 import ethanmmd.utils.WithConsoleView;
 
-class ColorView extends WithConsoleView {
+public class ColorView extends WithConsoleView {
 
     private static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
 
-    private Color color;
-
-    ColorView(Color color) {
-        this.color = color;
-    }
-
-    static String allInitials() {
-        String result = "";
+    public static String allInitials() {
+        StringBuilder result = new StringBuilder();
         for (char character : ColorView.INITIALS) {
-            result += character;
+            result.append(character);
         }
-        return result;
+        return result.toString();
     }
 
-    static Color getInstance(char character) {
+    public static Integer getInstance(char character) {
         for (int i = 0; i < ColorView.INITIALS.length; i++) {
             if (ColorView.INITIALS[i] == character) {
-                return Color.values()[i];
+                return i;
             }
         }
         return null;
     }
 
-    void write() {
-        this.console.write(ColorView.INITIALS[this.color.ordinal()]);
+    public void show(Color color) {
+        this.console.write(ColorView.INITIALS[color.ordinal()]);
     }
 
 }

@@ -8,15 +8,15 @@ public class Status {
         this.reset();
     }
 
-    public void reset(){
+    public void reset() {
         this.gameStatus = GameStatus.STARTED;
     }
 
-    public void next(){
+    public void next() {
         this.gameStatus = GameStatus.values()[this.gameStatus.ordinal() + 1];
     }
 
-    public GameStatus getGameStatus(){
+    public GameStatus getGameStatus() {
         return this.gameStatus;
     }
 }

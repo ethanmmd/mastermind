@@ -1,16 +1,12 @@
 package ethanmmd.mastermind.views.console;
 
 
-import ethanmmd.mastermind.controllers.StartController;
 import ethanmmd.mastermind.views.MessageView;
-import ethanmmd.utils.WithConsoleView;
 
-class StartView extends WithConsoleView {
+public class StartView {
 
-    void interact(StartController startController) {
+    public void show() {
         MessageView.TITLE.writeln();
-        new SecretCombinationView().writeln();
-        startController.next();
     }
 
 }

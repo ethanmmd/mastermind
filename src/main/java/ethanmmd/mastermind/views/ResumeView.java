@@ -1,18 +1,9 @@
 package ethanmmd.mastermind.views;
 
 
-import ethanmmd.mastermind.controllers.ResumeController;
-import ethanmmd.utils.YesNoDialog;
-
 public class ResumeView {
 
-    public void interact(ResumeController resumeController) {
+    public void interact() {
         MessageView.RESUME.write();
-        boolean newGame = new YesNoDialog().read();
-        if (newGame) {
-            resumeController.clear();
-        } else {
-            resumeController.next();
-        }
     }
 }

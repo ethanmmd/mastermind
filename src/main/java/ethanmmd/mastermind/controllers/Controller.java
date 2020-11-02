@@ -17,7 +17,6 @@ public abstract class Controller {
         this.status.next();
     }
 
-    public abstract void accept(ControllerVisitor controllerVisitor);
-
+    public abstract void control();
 
 }

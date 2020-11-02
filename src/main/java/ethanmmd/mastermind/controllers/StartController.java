@@ -1,9 +1,11 @@
 package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Game;
-import ethanmmd.mastermind.models.ProposedCombination;
-import ethanmmd.mastermind.models.Result;
 import ethanmmd.mastermind.models.Status;
+import ethanmmd.mastermind.views.console.SecretCombinationView;
+import ethanmmd.mastermind.views.console.StartView;
+
+import static ethanmmd.mastermind.models.SecretCombination.getWidth;
 
 public class StartController extends Controller {
 
@@ -12,8 +14,9 @@ public class StartController extends Controller {
     }
 
     @Override
-    public void accept(ControllerVisitor controllerVisitor) {
-        controllerVisitor.visit(this);
-
+    public void control() {
+        new StartView().show();
+        new SecretCombinationView().show(getWidth());
+        this.next();
     }
 }

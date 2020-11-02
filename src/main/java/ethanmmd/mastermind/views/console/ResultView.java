@@ -3,18 +3,11 @@ package ethanmmd.mastermind.views.console;
 
 import ethanmmd.mastermind.models.Result;
 import ethanmmd.mastermind.views.MessageView;
-import ethanmmd.utils.WithConsoleView;
 
-class ResultView extends WithConsoleView {
+public class ResultView {
 
-    private Result result;
-
-    ResultView(Result result) {
-        this.result = result;
-    }
-
-    void writeln() {
-        MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+    public void show(Result result) {
+        MessageView.RESULT.writeln(result.getBlacks(), result.getWhites());
     }
 
 }

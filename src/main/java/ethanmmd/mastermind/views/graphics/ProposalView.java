@@ -1,18 +1,13 @@
 package ethanmmd.mastermind.views.graphics;
 
 
-import ethanmmd.mastermind.controllers.ProposalController;
-
-class ProposalView {
+public class ProposalView {
 
     private final SecretCombinationView secretCombinationView;
 
-    ProposalView() {
+    public ProposalView() {
         this.secretCombinationView = new SecretCombinationView();
     }
 
-    void interact(ProposalController proposalController) {
-        proposalController.next();
-    }
 
 }

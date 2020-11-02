@@ -2,7 +2,6 @@ package ethanmmd.mastermind.views.graphics;
 
 
 import ethanmmd.mastermind.models.Color;
-import ethanmmd.utils.WithConsoleView;
 import ethanmmd.utils.WithGraphicsView;
 
 class ColorView extends WithGraphicsView {
