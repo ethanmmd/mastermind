@@ -2,11 +2,11 @@ package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Error;
 import ethanmmd.mastermind.models.*;
-import ethanmmd.mastermind.views.MessageView;
-import ethanmmd.mastermind.views.console.*;
+import ethanmmd.mastermind.views.*;
 
 import static ethanmmd.mastermind.models.Error.*;
-import static ethanmmd.mastermind.models.SecretCombination.*;
+import static ethanmmd.mastermind.models.SecretCombination.getWidth;
+import static ethanmmd.mastermind.views.ColorView.getInstance;
 import static java.util.Objects.nonNull;
 
 public class ProposalController extends Controller {
@@ -18,11 +18,14 @@ public class ProposalController extends Controller {
     @Override
     public void control() {
         ProposalView proposalView = new ProposalView();
+        SecretCombinationView secretCombinationView = new SecretCombinationView();
         ProposedCombination proposedCombination = new ProposedCombination();
         ProposedCombinationView proposedCombinationView = new ProposedCombinationView();
+
         Error error;
         do {
             error = readAndValidateProposedCombination(proposedCombinationView, proposedCombination);
+
             if (nonNull(error)) {
                 new ErrorView().show(error.ordinal());
                 proposedCombination.getColors().clear();
@@ -31,13 +34,16 @@ public class ProposalController extends Controller {
 
         this.addProposedCombination(proposedCombination);
         proposalView.show(this.getAttempts());
-        new SecretCombinationView().show(getWidth());
+        secretCombinationView.show(getWidth());
+        ColorView colorView = new ColorView();
+
         for (int i = 0; i < this.getAttempts(); i++) {
             for (Color color : this.getProposedCombination(i).getColors()) {
-                new ColorView().show(color);
+                colorView.show(color);
             }
             new ResultView().show(this.getResult(i));
         }
+
         if (this.isWinner()) {
             MessageView.WINNER.writeln();
             this.next();
@@ -47,39 +53,15 @@ public class ProposalController extends Controller {
         }
     }
 
-    public void addProposedCombination(ProposedCombination proposedCombination) {
-        this.game.addProposedCombination(proposedCombination);
-    }
-
-    public int getAttempts() {
-        return this.game.getAttempts();
-    }
-
-    public ProposedCombination getProposedCombination(int position) {
-        return this.game.getProposedCombination(position);
-    }
-
-    public Result getResult(int position) {
-        return this.game.getResult(position);
-    }
-
-    public boolean isLooser() {
-        return this.game.isLooser();
-    }
-
-    public boolean isWinner() {
-        return this.game.isWinner();
-    }
-
     private Error readAndValidateProposedCombination(ProposedCombinationView proposedCombinationView, ProposedCombination proposedCombination) {
         Error error;
         error = null;
         String characters = proposedCombinationView.show();
-        if (characters.length() > Combination.getWidth()) {
+        if (characters.length() > getWidth()) {
             error = WRONG_LENGTH;
         } else {
             for (int i = 0; i < characters.length(); i++) {
-                Integer colorPosition = ColorView.getInstance(characters.charAt(i));
+                Integer colorPosition = getInstance(characters.charAt(i));
                 if (colorPosition == null) {
                     error = WRONG_CHARACTERS;
                 } else {
@@ -92,6 +74,30 @@ public class ProposalController extends Controller {
             }
         }
         return error;
+    }
+
+    private void addProposedCombination(ProposedCombination proposedCombination) {
+        this.game.addProposedCombination(proposedCombination);
+    }
+
+    private int getAttempts() {
+        return this.game.getAttempts();
+    }
+
+    private ProposedCombination getProposedCombination(int position) {
+        return this.game.getProposedCombination(position);
+    }
+
+    private Result getResult(int position) {
+        return this.game.getResult(position);
+    }
+
+    private boolean isWinner() {
+        return this.game.isWinner();
+    }
+
+    private boolean isLooser() {
+        return this.game.isLooser();
     }
 
 }

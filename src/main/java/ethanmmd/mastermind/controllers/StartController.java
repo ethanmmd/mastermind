@@ -2,8 +2,8 @@ package ethanmmd.mastermind.controllers;
 
 import ethanmmd.mastermind.models.Game;
 import ethanmmd.mastermind.models.Status;
-import ethanmmd.mastermind.views.console.SecretCombinationView;
-import ethanmmd.mastermind.views.console.StartView;
+import ethanmmd.mastermind.views.SecretCombinationView;
+import ethanmmd.mastermind.views.StartView;
 
 import static ethanmmd.mastermind.models.SecretCombination.getWidth;
 

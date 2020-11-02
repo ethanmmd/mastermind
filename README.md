@@ -23,7 +23,7 @@ mvn install
 For Console edition:
 
 ```sh
-<mainClass>ethanmmd.mastermind.ConsoleMastermind</mainClass>
+<mainClass>ethanmmd.mastermind.Mastermind</mainClass>
 ```
 And then:
 
@@ -32,20 +32,6 @@ mvn clean
 mvn package
 java -jar target/mastermind-1.0.0-SNAPSHOT.jar
 ```
-
-For Graphics edition(currenty not working):
-
-```sh
-<mainClass>ethanmmd.mastermind.GraphicsMastermind</mainClass>
-```
-And then:
-
-```sh
-mvn clean
-mvn package
-java -jar target/mastermind-1.0.0-SNAPSHOT.jar
-```
-
 ## Run tests
 
 ```sh

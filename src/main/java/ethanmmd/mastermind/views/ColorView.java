@@ -1,4 +1,4 @@
-package ethanmmd.mastermind.views.console;
+package ethanmmd.mastermind.views;
 
 
 import ethanmmd.mastermind.models.Color;
@@ -10,15 +10,15 @@ public class ColorView extends WithConsoleView {
 
     public static String allInitials() {
         StringBuilder result = new StringBuilder();
-        for (char character : ColorView.INITIALS) {
+        for (char character : INITIALS) {
             result.append(character);
         }
         return result.toString();
     }
 
     public static Integer getInstance(char character) {
-        for (int i = 0; i < ColorView.INITIALS.length; i++) {
-            if (ColorView.INITIALS[i] == character) {
+        for (int i = 0; i < INITIALS.length; i++) {
+            if (INITIALS[i] == character) {
                 return i;
             }
         }
@@ -26,7 +26,7 @@ public class ColorView extends WithConsoleView {
     }
 
     public void show(Color color) {
-        this.console.write(ColorView.INITIALS[color.ordinal()]);
+        this.console.write(INITIALS[color.ordinal()]);
     }
 
 }

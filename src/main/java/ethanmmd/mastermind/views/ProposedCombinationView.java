@@ -1,4 +1,4 @@
-package ethanmmd.mastermind.views.console;
+package ethanmmd.mastermind.views;
 
 
 import ethanmmd.mastermind.views.MessageView;

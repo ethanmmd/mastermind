@@ -12,13 +12,13 @@ import java.util.EnumMap;
 
 import static java.util.Objects.nonNull;
 
-public abstract class Mastermind {
+class Mastermind {
 
     private Game game;
     private Status status;
     private EnumMap<GameStatus, Controller> controllerEnumMap;
 
-    protected Mastermind() {
+    private Mastermind() {
         this.game = new Game();
         this.status = new Status();
         this.controllerEnumMap = new EnumMap<>(GameStatus.class);
@@ -26,6 +26,10 @@ public abstract class Mastermind {
         this.controllerEnumMap.put(GameStatus.PROPOSED, new ProposalController(this.game, this.status));
         this.controllerEnumMap.put(GameStatus.RESUMED, new ResumeController(this.game, this.status));
         this.controllerEnumMap.put(GameStatus.EXIT, null);
+    }
+
+    public static void main(String[] args) {
+        new Mastermind().play();
     }
 
     protected void play() {

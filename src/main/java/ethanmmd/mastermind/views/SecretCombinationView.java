@@ -1,7 +1,6 @@
-package ethanmmd.mastermind.views.console;
+package ethanmmd.mastermind.views;
 
 
-import ethanmmd.mastermind.views.MessageView;
 import ethanmmd.utils.WithConsoleView;
 
 public class SecretCombinationView extends WithConsoleView {

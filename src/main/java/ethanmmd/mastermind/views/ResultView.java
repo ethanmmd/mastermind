@@ -1,8 +1,7 @@
-package ethanmmd.mastermind.views.console;
+package ethanmmd.mastermind.views;
 
 
 import ethanmmd.mastermind.models.Result;
-import ethanmmd.mastermind.views.MessageView;
 
 public class ResultView {
 

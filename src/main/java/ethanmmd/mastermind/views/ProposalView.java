@@ -1,7 +1,6 @@
-package ethanmmd.mastermind.views.console;
+package ethanmmd.mastermind.views;
 
 
-import ethanmmd.mastermind.views.MessageView;
 import ethanmmd.utils.WithConsoleView;
 
 public class ProposalView extends WithConsoleView {
@@ -10,5 +9,4 @@ public class ProposalView extends WithConsoleView {
         this.console.writeln();
         MessageView.ATTEMPTS.writeln(attempts);
     }
-
 }
