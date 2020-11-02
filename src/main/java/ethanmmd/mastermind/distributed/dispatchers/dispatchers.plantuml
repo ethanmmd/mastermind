@@ -1,0 +1,251 @@
+@startuml
+
+title __DISPATCHERS's Class Diagram__\n
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.AddProposalDispatcher {
+            + AddProposalDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        abstract class ethanmmd.mastermind.distributed.dispatchers.Dispatcher {
+            + Dispatcher()
+            + associate()
+            {abstract} + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.DispatcherPrototype {
+            - dispatcherMap : Map<FrameType, Dispatcher>
+            + DispatcherPrototype()
+            + add()
+            + serve()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        enum FrameType {
+          ADD_PROPOSED_COMBINATION
+          CLOSE
+          GET_ATTEMPTS
+          GET_PROPOSAL_COMBINATION
+          GET_RESULT
+          IS_LOOSER
+          IS_WINNER
+          NEXT_STATUS
+          REDO
+          REDOABLE
+          RESUME
+          START
+          STATUS
+          UNDO
+          UNDOABLE
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetAttemptsDispatcher {
+            + GetAttemptsDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetProposalDispatcher {
+            + GetProposalDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetResultDispatcher {
+            + GetResultDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.IsLooserDispatcher {
+            + IsLooserDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.IsWinnerDispatcher {
+            + IsWinnerDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.NextStatusDispatcher {
+            + NextStatusDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.RedoDispatcher {
+            + RedoDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.RedoableDispatcher {
+            + RedoableDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.ResumeDispatcher {
+            + ResumeDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.StartDispatcher {
+            + StartDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.StatusDispatcher {
+            + StatusDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.UndoDispatcher {
+            + UndoDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.UndoableDispatcher {
+            + UndoableDispatcher()
+            + dispatch()
+        }
+      }
+    }
+  }
+  
+
+  ethanmmd.mastermind.distributed.dispatchers.AddProposalDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.Dispatcher o-- ethanmmd.mastermind.controllers.AcceptorController : acceptorController
+  ethanmmd.mastermind.distributed.dispatchers.Dispatcher o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.dispatchers.DispatcherPrototype o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.dispatchers.GetAttemptsDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.GetProposalDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.GetResultDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.IsLooserDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.IsWinnerDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.NextStatusDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.RedoDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.RedoableDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.ResumeDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.StartDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.StatusDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.UndoDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.UndoableDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

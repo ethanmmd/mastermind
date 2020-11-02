@@ -1,0 +1,882 @@
+@startuml
+
+title __MASTERMIND's Class Diagram__\n
+
+  namespace ethanmmd.mastermind {
+    class ethanmmd.mastermind.ConsoleMastermind {
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    class ethanmmd.mastermind.GraphicsMastermind {
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    abstract class ethanmmd.mastermind.Mastermind {
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      abstract class ethanmmd.mastermind.controllers.AcceptorController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      class ethanmmd.mastermind.controllers.ActionController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      abstract class ethanmmd.mastermind.controllers.Controller {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      interface ethanmmd.mastermind.controllers.ControllerVisitor {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      class ethanmmd.mastermind.controllers.Logic {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      abstract class ethanmmd.mastermind.controllers.ProposalController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      class ethanmmd.mastermind.controllers.RedoController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      abstract class ethanmmd.mastermind.controllers.ResumeController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      abstract class ethanmmd.mastermind.controllers.StartController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      class ethanmmd.mastermind.controllers.UndoController {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      namespace implementation {
+        class ethanmmd.mastermind.controllers.implementation.LogicImplementation {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      namespace implementation {
+        class ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      namespace implementation {
+        class ethanmmd.mastermind.controllers.implementation.ResumeControllerImplementation {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace controllers {
+      namespace implementation {
+        class ethanmmd.mastermind.controllers.implementation.StartControllerImplementation {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      class ethanmmd.mastermind.distributed.LogicServerImplementation {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      class ethanmmd.mastermind.distributed.MastermindClient {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      class ethanmmd.mastermind.distributed.MastermindServer {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      class ethanmmd.mastermind.distributed.TCPIP {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.AddProposalDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        abstract class ethanmmd.mastermind.distributed.dispatchers.Dispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.DispatcherPrototype {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        enum FrameType {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetAttemptsDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetProposalDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.GetResultDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.IsLooserDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.IsWinnerDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.NextStatusDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.RedoDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.RedoableDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.ResumeDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.StartDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.StatusDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.UndoDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace dispatchers {
+        class ethanmmd.mastermind.distributed.dispatchers.UndoableDispatcher {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace proxy {
+        class ethanmmd.mastermind.distributed.proxy.LogicProxy {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace proxy {
+        class ethanmmd.mastermind.distributed.proxy.ProposalControllerProxy {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace proxy {
+        class ethanmmd.mastermind.distributed.proxy.ResumeControllerProxy {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace proxy {
+        class ethanmmd.mastermind.distributed.proxy.SessionProxy {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace distributed {
+      namespace proxy {
+        class ethanmmd.mastermind.distributed.proxy.StartControllerProxy {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      enum Color {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      abstract class ethanmmd.mastermind.models.Combination {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      enum Error {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.Game {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.GameRegistry {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      enum GameStatus {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.ProposedCombination {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.Result {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.SecretCombination {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      interface ethanmmd.mastermind.models.Session {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.SessionImplementation {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace models {
+      class ethanmmd.mastermind.models.Status {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      enum MessageView {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      class ethanmmd.mastermind.views.ResumeView {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      abstract class ethanmmd.mastermind.views.View {
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ColorView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        abstract class ethanmmd.mastermind.views.console.ConsoleCommand {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ConsoleView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ErrorView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        abstract class ethanmmd.mastermind.views.console.Menu {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ProposalConsoleCommand {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ProposalMenu {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ProposalView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ProposedCombinationView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.RedoConsoleCommand {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ResultView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.SecretCombinationView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.StartView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.UndoConsoleCommand {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.ColorView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.ErrorView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.GraphicsView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.ProposalView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.ResultView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.SecretCombinationView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace graphics {
+        class ethanmmd.mastermind.views.graphics.StartView {
+        }
+      }
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    class ethanmmd.utils.AbstractTCPIP {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    class ethanmmd.utils.ClosedInterval {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    interface ethanmmd.utils.Command {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    class ethanmmd.utils.Console {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    abstract class ethanmmd.utils.WithConsoleView {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    abstract class ethanmmd.utils.WithGraphicsView {
+    }
+  }
+  
+
+  namespace ethanmmd.utils {
+    class ethanmmd.utils.YesNoDialog {
+    }
+  }
+  
+
+  ethanmmd.mastermind.ConsoleMastermind -up-|> ethanmmd.mastermind.Mastermind
+  ethanmmd.mastermind.GraphicsMastermind -up-|> ethanmmd.mastermind.Mastermind
+  ethanmmd.mastermind.Mastermind o-- ethanmmd.mastermind.controllers.Logic : logic
+  ethanmmd.mastermind.Mastermind o-- ethanmmd.mastermind.views.View : view
+  ethanmmd.mastermind.controllers.AcceptorController -up-|> ethanmmd.mastermind.controllers.Controller
+  ethanmmd.mastermind.controllers.ActionController -up-|> ethanmmd.mastermind.controllers.Controller
+  ethanmmd.mastermind.controllers.ActionController o-- ethanmmd.mastermind.models.SessionImplementation : sessionImplementation
+  ethanmmd.mastermind.controllers.Controller o-- ethanmmd.mastermind.models.Session : session
+  ethanmmd.mastermind.controllers.Logic o-- ethanmmd.mastermind.models.Session : session
+  ethanmmd.mastermind.controllers.ProposalController -up-|> ethanmmd.mastermind.controllers.AcceptorController
+  ethanmmd.mastermind.controllers.RedoController -up-|> ethanmmd.mastermind.controllers.Controller
+  ethanmmd.mastermind.controllers.RedoController o-- ethanmmd.mastermind.models.SessionImplementation : sessionImplementation
+  ethanmmd.mastermind.controllers.ResumeController -up-|> ethanmmd.mastermind.controllers.AcceptorController
+  ethanmmd.mastermind.controllers.StartController -up-|> ethanmmd.mastermind.controllers.AcceptorController
+  ethanmmd.mastermind.controllers.UndoController -up-|> ethanmmd.mastermind.controllers.Controller
+  ethanmmd.mastermind.controllers.UndoController o-- ethanmmd.mastermind.models.SessionImplementation : sessionImplementation
+  ethanmmd.mastermind.controllers.implementation.LogicImplementation -up-|> ethanmmd.mastermind.controllers.Logic
+  ethanmmd.mastermind.controllers.implementation.LogicImplementation o-- ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation : proposalControllerImplementation
+  ethanmmd.mastermind.controllers.implementation.LogicImplementation o-- ethanmmd.mastermind.controllers.implementation.ResumeControllerImplementation : resumeControllerImplementation
+  ethanmmd.mastermind.controllers.implementation.LogicImplementation o-- ethanmmd.mastermind.controllers.implementation.StartControllerImplementation : startControllerImplementation
+  ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation -up-|> ethanmmd.mastermind.controllers.ProposalController
+  ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation o-- ethanmmd.mastermind.controllers.ActionController : actionController
+  ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation o-- ethanmmd.mastermind.controllers.RedoController : redoController
+  ethanmmd.mastermind.controllers.implementation.ProposalControllerImplementation o-- ethanmmd.mastermind.controllers.UndoController : undoController
+  ethanmmd.mastermind.controllers.implementation.ResumeControllerImplementation -up-|> ethanmmd.mastermind.controllers.ResumeController
+  ethanmmd.mastermind.controllers.implementation.ResumeControllerImplementation o-- ethanmmd.mastermind.models.SessionImplementation : sessionImplementation
+  ethanmmd.mastermind.controllers.implementation.StartControllerImplementation -up-|> ethanmmd.mastermind.controllers.StartController
+  ethanmmd.mastermind.controllers.implementation.StartControllerImplementation o-- ethanmmd.mastermind.models.SessionImplementation : sessionImplementation
+  ethanmmd.mastermind.distributed.LogicServerImplementation -up-|> ethanmmd.mastermind.controllers.implementation.LogicImplementation
+  ethanmmd.mastermind.distributed.MastermindClient -up-|> ethanmmd.mastermind.Mastermind
+  ethanmmd.mastermind.distributed.MastermindServer o-- ethanmmd.mastermind.distributed.dispatchers.DispatcherPrototype : dispatcherPrototype
+  ethanmmd.mastermind.distributed.TCPIP -up-|> ethanmmd.utils.AbstractTCPIP
+  ethanmmd.mastermind.distributed.dispatchers.AddProposalDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.Dispatcher o-- ethanmmd.mastermind.controllers.AcceptorController : acceptorController
+  ethanmmd.mastermind.distributed.dispatchers.Dispatcher o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.dispatchers.DispatcherPrototype o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.dispatchers.GetAttemptsDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.GetProposalDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.GetResultDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.IsLooserDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.IsWinnerDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.NextStatusDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.RedoDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.RedoableDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.ResumeDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.StartDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.StatusDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.UndoDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.dispatchers.UndoableDispatcher -up-|> ethanmmd.mastermind.distributed.dispatchers.Dispatcher
+  ethanmmd.mastermind.distributed.proxy.LogicProxy -up-|> ethanmmd.mastermind.controllers.Logic
+  ethanmmd.mastermind.distributed.proxy.LogicProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.proxy.ProposalControllerProxy -up-|> ethanmmd.mastermind.controllers.ProposalController
+  ethanmmd.mastermind.distributed.proxy.ProposalControllerProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.proxy.ResumeControllerProxy -up-|> ethanmmd.mastermind.controllers.ResumeController
+  ethanmmd.mastermind.distributed.proxy.ResumeControllerProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.proxy.SessionProxy .up.|> ethanmmd.mastermind.models.Session
+  ethanmmd.mastermind.distributed.proxy.SessionProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.distributed.proxy.StartControllerProxy -up-|> ethanmmd.mastermind.controllers.StartController
+  ethanmmd.mastermind.distributed.proxy.StartControllerProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
+  ethanmmd.mastermind.models.Game o-- ethanmmd.mastermind.models.SecretCombination : secretCombination
+  ethanmmd.mastermind.models.GameRegistry o-- ethanmmd.mastermind.models.Game : game
+  ethanmmd.mastermind.models.ProposedCombination -up-|> ethanmmd.mastermind.models.Combination
+  ethanmmd.mastermind.models.SecretCombination -up-|> ethanmmd.mastermind.models.Combination
+  ethanmmd.mastermind.models.SessionImplementation .up.|> ethanmmd.mastermind.models.Session
+  ethanmmd.mastermind.models.SessionImplementation o-- ethanmmd.mastermind.models.Game : game
+  ethanmmd.mastermind.models.SessionImplementation o-- ethanmmd.mastermind.models.GameRegistry : gameRegistry
+  ethanmmd.mastermind.models.SessionImplementation o-- ethanmmd.mastermind.models.Status : status
+  ethanmmd.mastermind.models.Status o-- ethanmmd.mastermind.models.GameStatus : gameStatus
+  ethanmmd.mastermind.views.console.ColorView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ColorView o-- ethanmmd.mastermind.models.Color : color
+  ethanmmd.mastermind.views.console.ConsoleCommand .up.|> ethanmmd.utils.Command
+  ethanmmd.mastermind.views.console.ConsoleCommand o-- ethanmmd.mastermind.controllers.ProposalController : proposalController
+  ethanmmd.mastermind.views.console.ConsoleView .up.|> ethanmmd.mastermind.controllers.ControllerVisitor
+  ethanmmd.mastermind.views.console.ConsoleView -up-|> ethanmmd.mastermind.views.View
+  ethanmmd.mastermind.views.console.ConsoleView o-- ethanmmd.mastermind.views.console.ProposalView : proposalView
+  ethanmmd.mastermind.views.console.ConsoleView o-- ethanmmd.mastermind.views.ResumeView : resumeView
+  ethanmmd.mastermind.views.console.ConsoleView o-- ethanmmd.mastermind.views.console.StartView : startView
+  ethanmmd.mastermind.views.console.ErrorView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ErrorView o-- ethanmmd.mastermind.models.Error : error
+  ethanmmd.mastermind.views.console.ProposalConsoleCommand -up-|> ethanmmd.mastermind.views.console.ConsoleCommand
+  ethanmmd.mastermind.views.console.ProposalMenu -up-|> ethanmmd.mastermind.views.console.Menu
+  ethanmmd.mastermind.views.console.ProposalView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ProposalView o-- ethanmmd.mastermind.views.console.SecretCombinationView : secretCombinationView
+  ethanmmd.mastermind.views.console.ProposedCombinationView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ProposedCombinationView o-- ethanmmd.mastermind.models.ProposedCombination : proposedCombination
+  ethanmmd.mastermind.views.console.RedoConsoleCommand -up-|> ethanmmd.mastermind.views.console.ConsoleCommand
+  ethanmmd.mastermind.views.console.ResultView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ResultView o-- ethanmmd.mastermind.models.Result : result
+  ethanmmd.mastermind.views.console.SecretCombinationView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.StartView -up-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.UndoConsoleCommand -up-|> ethanmmd.mastermind.views.console.ConsoleCommand
+  ethanmmd.mastermind.views.graphics.ColorView -up-|> ethanmmd.utils.WithGraphicsView
+  ethanmmd.mastermind.views.graphics.ColorView o-- ethanmmd.mastermind.models.Color : color
+  ethanmmd.mastermind.views.graphics.ErrorView -up-|> ethanmmd.utils.WithGraphicsView
+  ethanmmd.mastermind.views.graphics.ErrorView o-- ethanmmd.mastermind.models.Error : error
+  ethanmmd.mastermind.views.graphics.GraphicsView .up.|> ethanmmd.mastermind.controllers.ControllerVisitor
+  ethanmmd.mastermind.views.graphics.GraphicsView -up-|> ethanmmd.mastermind.views.View
+  ethanmmd.mastermind.views.graphics.GraphicsView o-- ethanmmd.mastermind.views.graphics.ProposalView : proposalView
+  ethanmmd.mastermind.views.graphics.GraphicsView o-- ethanmmd.mastermind.views.ResumeView : resumeView
+  ethanmmd.mastermind.views.graphics.GraphicsView o-- ethanmmd.mastermind.views.graphics.StartView : startView
+  ethanmmd.mastermind.views.graphics.ProposalView o-- ethanmmd.mastermind.views.graphics.SecretCombinationView : secretCombinationView
+  ethanmmd.mastermind.views.graphics.ResultView o-- ethanmmd.mastermind.models.Result : result
+  ethanmmd.mastermind.views.graphics.SecretCombinationView -up-|> ethanmmd.utils.WithGraphicsView
+  ethanmmd.utils.WithConsoleView o-- ethanmmd.utils.Console : console
+  ethanmmd.utils.WithGraphicsView o-- ethanmmd.utils.Console : console
+  ethanmmd.utils.YesNoDialog -up-|> ethanmmd.utils.WithConsoleView
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

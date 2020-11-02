@@ -1,0 +1,126 @@
+@startuml
+
+title __CONSOLE's Class Diagram__\n
+
+  namespace ethanmmd.mastermind {
+    namespace views {
+      namespace console {
+        class ethanmmd.mastermind.views.console.ColorView {
+            {static} - INITIALS : char[]
+            {static} + getInstance()
+            + write()
+            ~ ColorView()
+            {static} ~ allInitials()
+        }
+
+        abstract class ethanmmd.mastermind.views.console.ConsoleCommand {
+                    # name : String
+                    + ConsoleCommand()
+                    + getName()
+        }
+
+        class ethanmmd.mastermind.views.console.ConsoleView {
+                    + ConsoleView()
+                    + interact()
+                    + visit()
+                    + visit()
+                    + visit()
+        }
+
+        class ethanmmd.mastermind.views.console.ErrorView {
+                    {static} - MESSAGES : String[]
+                    + writeln()
+                    ~ ErrorView()
+                }
+
+        abstract class ethanmmd.mastermind.views.console.Menu {
+                    {static} - TITLE_OPTION : String
+                    - consoleCommands : List<ConsoleCommand>
+                    + Menu()
+                    + execute()
+                    # addCommand()
+                }
+
+        class ethanmmd.mastermind.views.console.ProposalConsoleCommand {
+                    + ProposalConsoleCommand()
+                    + execute()
+                    + isActive()
+                }
+
+        class ethanmmd.mastermind.views.console.ProposalMenu {
+                    ~ ProposalMenu()
+                }
+
+        class ethanmmd.mastermind.views.console.ProposalView {
+                    + ProposalView()
+                    ~ interact()
+                }
+
+        class ethanmmd.mastermind.views.console.UndoConsoleCommand {
+                    + UndoConsoleCommand()
+                    + execute()
+                    + isActive()
+                }
+        class ethanmmd.mastermind.views.console.StartView {
+                    ~ interact()
+                }
+
+        class ethanmmd.mastermind.views.console.SecretCombinationView {
+                    ~ SecretCombinationView()
+                    ~ writeln()
+                }
+
+        class ethanmmd.mastermind.views.console.ResultView {
+                    ~ ResultView()
+                    ~ writeln()
+        }
+
+        class ethanmmd.mastermind.views.console.RedoConsoleCommand {
+                    + RedoConsoleCommand()
+                    + execute()
+                    + isActive()
+        }
+
+        class ethanmmd.mastermind.views.console.ProposedCombinationView {
+                    ~ ProposedCombinationView()
+                    ~ read()
+                    ~ write()
+        }
+      }
+    }
+  }
+  
+
+  ethanmmd.mastermind.views.console.ColorView -down---|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ColorView o---- ethanmmd.mastermind.models.Color : color
+  ethanmmd.mastermind.views.console.ConsoleCommand .down...|> ethanmmd.utils.Command
+  ethanmmd.mastermind.views.console.ConsoleCommand o---- ethanmmd.mastermind.controllers.ProposalController : proposalController
+  ethanmmd.mastermind.views.console.ConsoleView .down.|> ethanmmd.mastermind.controllers.ControllerVisitor
+  ethanmmd.mastermind.views.console.ConsoleView -down---|> ethanmmd.mastermind.views.View
+  ethanmmd.mastermind.views.console.ConsoleView o---- ethanmmd.mastermind.views.console.ProposalView : proposalView
+  ethanmmd.mastermind.views.console.ConsoleView o---- ethanmmd.mastermind.views.ResumeView : resumeView
+  ethanmmd.mastermind.views.console.ConsoleView o---- ethanmmd.mastermind.views.console.StartView : startView
+  ethanmmd.mastermind.views.console.ErrorView -down---> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ErrorView o---- ethanmmd.mastermind.models.Error : error
+  ethanmmd.mastermind.views.console.ProposalConsoleCommand -down---|> ethanmmd.mastermind.views.console.ConsoleCommand
+  ethanmmd.mastermind.views.console.ProposalMenu -down---|> ethanmmd.mastermind.views.console.Menu
+  ethanmmd.mastermind.views.console.ProposalView -down---|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ProposalView o-- ethanmmd.mastermind.views.console.SecretCombinationView : secretCombinationView
+  ethanmmd.mastermind.views.console.ProposedCombinationView -down---|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ProposedCombinationView o---- ethanmmd.mastermind.models.ProposedCombination : proposedCombination
+  ethanmmd.mastermind.views.console.RedoConsoleCommand -down---|> ethanmmd.mastermind.views.console.ConsoleCommand
+  ethanmmd.mastermind.views.console.ResultView -down---|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.ResultView o---- ethanmmd.mastermind.models.Result : result
+  ethanmmd.mastermind.views.console.SecretCombinationView ---down-|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.StartView -down---|> ethanmmd.utils.WithConsoleView
+  ethanmmd.mastermind.views.console.UndoConsoleCommand -down---|> ethanmmd.mastermind.views.console.ConsoleCommand
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
