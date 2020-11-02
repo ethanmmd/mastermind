@@ -25,6 +25,11 @@ public abstract class Mastermind {
                 this.view.interact(controller);
             }
         } while (nonNull(controller));
+
+        if (!this.isStandalone()) {
+            this.logic.close();
+
+        }
     }
 
     protected abstract View createView();
