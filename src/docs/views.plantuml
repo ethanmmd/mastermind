@@ -18,27 +18,17 @@ title __VIEWS's Class Diagram__\n
         WINNER
         message
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace views {
+
       class ethanmmd.mastermind.views.ResumeView {
           + interact()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace views {
+
       abstract class ethanmmd.mastermind.views.View {
           {abstract} + interact()
       }
-    }
-  }
-  
+
 
 
 

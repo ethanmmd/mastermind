@@ -12,35 +12,23 @@ title __MODELS's Class Diagram__\n
         RED
         YELLOW
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       abstract class ethanmmd.mastermind.models.Combination {
           # colors : List<Color>
           {static} - WIDTH : int
           {static} + getWidth()
           # Combination()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       enum Error {
         DUPLICATED
         WRONG_CHARACTERS
         WRONG_LENGTH
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.Game {
           {static} - MAX_LONG : int
           - attempts : int
@@ -57,12 +45,8 @@ title __MODELS's Class Diagram__\n
           ~ createGameVersion()
           ~ setGameVersion()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.Game.GameVersion {
           - attempts : int
           - proposedCombinations : List<ProposedCombination>
@@ -72,12 +56,8 @@ title __MODELS's Class Diagram__\n
           + getResults()
           ~ GameVersion()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.GameRegistry {
           - firstPrevious : int
           - gameVersions : List<GameVersion>
@@ -89,35 +69,23 @@ title __MODELS's Class Diagram__\n
           ~ undo()
           ~ undoable()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       enum GameStatus {
         EXIT
         PROPOSED
         RESUMED
         STARTED
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.ProposedCombination {
           + getColors()
           ~ contains()
           ~ contains()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.Result {
           - blacks : int
           - whites : int
@@ -126,31 +94,19 @@ title __MODELS's Class Diagram__\n
           + getWhites()
           ~ isWinner()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.SecretCombination {
           ~ SecretCombination()
           ~ getResult()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       interface ethanmmd.mastermind.models.Session {
           {abstract} + getGameStatus()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.SessionImplementation {
           + SessionImplementation()
           + addProposedCombination()
@@ -167,12 +123,8 @@ title __MODELS's Class Diagram__\n
           + undo()
           + undoable()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace models {
+
       class ethanmmd.mastermind.models.Status {
           + Status()
           + getGameStatus()
@@ -181,7 +133,6 @@ title __MODELS's Class Diagram__\n
       }
     }
   }
-  
 
   ethanmmd.mastermind.models.Game o-- ethanmmd.mastermind.models.SecretCombination : secretCombination
   ethanmmd.mastermind.models.Game +-down- ethanmmd.mastermind.models.Game.GameVersion

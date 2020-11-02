@@ -7,34 +7,22 @@ title __DISTRIBUTED's Class Diagram__\n
       class ethanmmd.mastermind.distributed.LogicServerImplementation {
           ~ createDispatchers()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
+
       class ethanmmd.mastermind.distributed.MastermindClient {
           {static} + main()
           # createLogic()
           # createView()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
+
       class ethanmmd.mastermind.distributed.MastermindServer {
           + MastermindServer()
           {static} + main()
           - serve()
       }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
+
       class ethanmmd.mastermind.distributed.TCPIP {
           + TCPIP()
           + TCPIP()
@@ -43,9 +31,8 @@ title __DISTRIBUTED's Class Diagram__\n
           + receiveProposedCombination()
           + sendProposedCombination()
       }
-    }
   }
-  
+  }
 
   ethanmmd.mastermind.distributed.LogicServerImplementation -up-|> ethanmmd.mastermind.controllers.implementation.LogicImplementation
   ethanmmd.mastermind.distributed.MastermindClient -up-|> ethanmmd.mastermind.Mastermind

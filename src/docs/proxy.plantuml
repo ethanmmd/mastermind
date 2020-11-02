@@ -8,14 +8,8 @@ title __PROXY's Class Diagram__\n
         class ethanmmd.mastermind.distributed.proxy.LogicProxy {
             + LogicProxy()
         }
-      }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
-      namespace proxy {
+
         class ethanmmd.mastermind.distributed.proxy.ProposalControllerProxy {
             + ProposalControllerProxy()
             + addProposedCombination()
@@ -30,38 +24,20 @@ title __PROXY's Class Diagram__\n
             + undo()
             + undoable()
         }
-      }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
-      namespace proxy {
+
         class ethanmmd.mastermind.distributed.proxy.ResumeControllerProxy {
             + ResumeControllerProxy()
             + resume()
         }
-      }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
-      namespace proxy {
+
         class ethanmmd.mastermind.distributed.proxy.SessionProxy {
             + SessionProxy()
             + getGameStatus()
         }
-      }
-    }
-  }
-  
 
-  namespace ethanmmd.mastermind {
-    namespace distributed {
-      namespace proxy {
+
         class ethanmmd.mastermind.distributed.proxy.StartControllerProxy {
             + StartControllerProxy()
             + start()
@@ -69,7 +45,7 @@ title __PROXY's Class Diagram__\n
       }
     }
   }
-  
+
 
   ethanmmd.mastermind.distributed.proxy.LogicProxy -up-|> ethanmmd.mastermind.controllers.Logic
   ethanmmd.mastermind.distributed.proxy.LogicProxy o-- ethanmmd.mastermind.distributed.TCPIP : tcpip
